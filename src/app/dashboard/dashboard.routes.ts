@@ -4,9 +4,10 @@ import { EstadisticaComponent } from '../ingreso-egreso/estadistica/estadistica.
 import { IngresoEgresoComponent } from '../ingreso-egreso/ingreso-egreso.component';
 import { DetalleComponent } from '../ingreso-egreso/detalle/detalle.component';
 import { DashboardComponent } from './dashboard.component';
+import { AuthGuardGuard } from '../services/auth-guard.guard';
 
 export const routes: Routes = [
-    {path:'', component:DashboardComponent,children:[
+    {path:'', component:DashboardComponent,canActivate:[AuthGuardGuard],children:[
         {path:'', component:EstadisticaComponent},
         {path:'ingreso-egreso', component:IngresoEgresoComponent},
         {path:'detalle', component:DetalleComponent}
